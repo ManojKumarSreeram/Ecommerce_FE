@@ -46,10 +46,8 @@ const ProductList = () => {
   const handleAddToCart = async (productId) => {
     try {
       await API.post('/cart/add', { product_id: productId, quantity: 1 });
-      alert('Product added to cart');
     } catch (err) {
       console.error('Add to cart error:', err);
-      alert('Failed to add to cart');
     }
   };
 
@@ -57,11 +55,9 @@ const ProductList = () => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
       await API.delete(`/products/${productId}`);
-      alert('Product deleted');
       fetchProducts();
     } catch (err) {
       console.error('Delete error:', err);
-      alert('Failed to delete product');
     }
   };
 
