@@ -1,0 +1,22 @@
+.product-detail-container {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  max-width: 900px;
+  margin: auto;
+  background: #fefefe;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+
+.product-detail-container img {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

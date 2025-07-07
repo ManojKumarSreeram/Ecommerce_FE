@@ -1,0 +1,34 @@
+.order-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+}
+
+.order-card {
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background-color: #f3f3f3;
+  cursor: pointer;
+  transition: background 0.2s ease-in;
+}
+
+.order-card:hover {
+  background-color: #e6e6e6;
+}
+
+.order-items {
+  margin-top: 20px;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.order-items ul {
+  padding-left: 20px;
+}

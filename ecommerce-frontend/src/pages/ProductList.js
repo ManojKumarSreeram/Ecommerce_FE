@@ -64,7 +64,9 @@ const ProductList = () => {
   return (
     <div className="product-page">
       <h2>Available Products</h2>
-
+      {role === 'admin' && (
+        <button onClick={() => navigate('/admin/add')}>+ Add Product</button>
+      )}
       <form onSubmit={handleSearch} className="search-bar">
         <input
           type="text"
@@ -83,23 +85,29 @@ const ProductList = () => {
 
       <div className="product-list">
         {products.map((p) => (
-          <div key={p.id} className="product-card">
-            <img src={p.image_url} alt={p.name} />
-            <h3>{p.name}</h3>
-            <p>{p.description}</p>
-            <p><strong>₹{p.price}</strong></p>
-            <p className="category">{p.category}</p>
+          <div
+              key={p.id}
+              className="product-card"
+              onClick={() => navigate(`/product/${p.id}`)}
+              style={{ cursor: 'pointer' }}
+            >
+              <img src={p.image_url} alt={p.name} />
+              <h3>{p.name}</h3>
+              <p>{p.description}</p>
+              <p><strong>₹{p.price}</strong></p>
+              <p className="category">{p.category}</p>
 
-            {role === 'customer' && (
-              <button onClick={() => handleAddToCart(p.id)}>Add to Cart</button>
-            )}
-            {role === 'admin' && (
-              <div className="admin-actions">
-                <button onClick={() => navigate(`/admin/edit/${p.id}`)}>Edit</button>
-                <button onClick={() => handleDelete(p.id)}>Delete</button>
-              </div>
-            )}
-          </div>
+              {role === 'customer' && (
+                <button onClick={(e) => { e.stopPropagation(); handleAddToCart(p.id); }}>Add to Cart</button>
+              )}
+              {role === 'admin' && (
+                <div className="admin-actions">
+                  <button onClick={(e) => { e.stopPropagation(); navigate(`/admin/edit/${p.id}`); }}>Edit</button>
+                  <button onClick={(e) => { e.stopPropagation(); handleDelete(p.id); }}>Delete</button>
+                </div>
+              )}
+            </div>
+
         ))}
       </div>
 
