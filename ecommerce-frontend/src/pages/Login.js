@@ -31,8 +31,6 @@ const Login = () => {
 
       // Use role from nested user object
       login(token, user.role);
-
-      alert('Login successful!');
       navigate('/');
     } catch (err) {
       console.error('Login error:', err);
